@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ChakraProvider, extendTheme  } from '@chakra-ui/react'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
-import './main.css'
+import './main.css';
 
 import Dashboard from './pages/Dashboard';
 import LandingPage from './pages/LandingPage';
@@ -12,21 +12,21 @@ import MyRegistries from './pages/MyRegistries';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <LandingPage />,
+    path: '/',
+    element: <LandingPage />
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: '/login',
+    element: <Login />
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: '/dashboard',
+    element: <Dashboard />
   },
   {
-    path: "/meus-registros",
-    element: <MyRegistries />,
-  },
+    path: '/meus-registros',
+    element: <MyRegistries />
+  }
 ]);
 
 const theme = extendTheme({
@@ -38,9 +38,9 @@ const theme = extendTheme({
   },
   fonts: {
     body: "'Poppins', sans-serif;",
-    heading: "'Poppins', sans-serif;",
+    heading: "'Poppins', sans-serif;"
   }
-})
+});
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -48,4 +48,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <RouterProvider router={router} />
     </ChakraProvider>
   </React.StrictMode>
-)
+);
