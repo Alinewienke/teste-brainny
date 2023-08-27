@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ChakraProvider, extendTheme  } from '@chakra-ui/react'
 
 import './main.css'
 
@@ -31,8 +29,23 @@ const router = createBrowserRouter([
   },
 ]);
 
+const theme = extendTheme({
+  colors: {
+    principal: '#330693',
+    secondary: '#8A53FF',
+    grey: '#20292E',
+    white: '#FFFFFF'
+  },
+  fonts: {
+    body: "'Poppins', sans-serif;",
+    heading: "'Poppins', sans-serif;",
+  }
+})
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ChakraProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ChakraProvider>
   </React.StrictMode>
 )
