@@ -13,7 +13,13 @@ Mencione as ferramentas que você usou para criar seu projeto
 * [Eslint](https://eslint.org/) - Linter
 * [Vite](https://vitejs.dev/) - Ferramenta de Construção do Projeto
 
-### 🔧 Instalação
+## :hammer: Funcionalidades do Projeto
+
+- `Funcionalidade 1`: Gerenciar registros de horários
+- `Funcionalidade 2`: Registrar horário de entrada e saída do colaborador
+- `Funcionalidade 3`: O usuário Administrador poderá visualizar os registros dos colaboradores.
+
+## 🔧 Instalação
 
 Passo a passo para a instalação e execução do projeto.
 
@@ -37,8 +43,7 @@ Execute a aplicação em modo de desenvolvimento
 $ npm run dev
 ```
 
-### 👩‍💻 Autora
----
+## 👩‍💻 Autora
 Feito com ❤️ por Aline Wienke. Entre em contato!
 
 [![Linkedin Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aline-wienke-sesterheim-65a183239/) 
