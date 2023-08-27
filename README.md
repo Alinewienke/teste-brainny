@@ -1,6 +1,7 @@
 # PontoGo - Teste Brainny
 ![image](https://github.com/Alinewienke/teste-brainny/assets/114545125/458d1884-5810-499f-bb67-866d5bed62d7)
 Esse projeto consiste na implementação de um sistema para o gerenciamento de Registros de Ponto dos colaboradores de uma empresa e uma Landing Page para a divulgação e comercialização deste mesmo sistema.
+[Acesse o projeto via Netlify](https://teste-brainny-pontogo.netlify.app/)
 
 ## 🛠️ Construído com
 
