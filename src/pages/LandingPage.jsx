@@ -1,7 +1,19 @@
+import NavBar from '../components/NavBar/NavBar';
+import MainContent from '../components/MainContent/MainContent';
+import CompanyLogos from '../components/CompanyLogos/CompanyLogos';
+import Footer from '../components/Footer/Footer';
+import Contact from '../components/Contact/Contact';
+import Pricing from '../components/Pricing/Pricing';
+
 function LandingPage() {
   return (
     <>
-      <h1>Landing Page</h1>
+      <NavBar />
+      <MainContent />
+      <CompanyLogos />
+      <Pricing />
+      <Contact />
+      <Footer />
     </>
   );
 }
