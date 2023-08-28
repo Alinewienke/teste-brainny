@@ -1,4 +1,4 @@
-import { Image } from '@chakra-ui/react';
+import { Center, Flex, Image, Box, Spacer } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
 
 import logoPontoGo from '../../assets/logo-pontogo.png';
@@ -10,25 +10,41 @@ import logoLinkedin from '../../assets/logo-linkedin.png';
 function Contact() {
   return (
     <>
-      <Image
-        src={logoPontoGo}
-        alt='logo pontogo'
-      />
-
-      <Text fontSize='xs'>Se conecta com a gente</Text>
-
-      <Image
-        src={logoInstagram}
-        alt='logo instagram'
-      />
-      <Image
-        src={logoFacebook}
-        alt='logo facebook'
-      />
-      <Image
-        src={logoLinkedin}
-        alt='logo linkedin'
-      />
+      <Center>
+        <Flex
+          mt='10'
+          alignItems='center'
+          w='450px'
+        >
+          <Box>
+            <Image
+              src={logoPontoGo}
+              alt='logo pontogo'
+            />
+            <Text
+              color='white'
+              fontSize='xs'
+            >
+              Se conecta com a gente
+            </Text>
+          </Box>
+          <Spacer />
+          <Image
+            src={logoInstagram}
+            alt='logo instagram'
+          />
+          <Spacer />
+          <Image
+            src={logoFacebook}
+            alt='logo facebook'
+          />
+          <Spacer />
+          <Image
+            src={logoLinkedin}
+            alt='logo linkedin'
+          />
+        </Flex>
+      </Center>
     </>
   );
 }

@@ -1,9 +1,17 @@
-import { Text } from '@chakra-ui/react';
+import { Text, Center } from '@chakra-ui/react';
 
 function Footer() {
   return (
     <>
-      <Text fontSize='xs'>PontoGo - Todos direitos reservados</Text>
+      <Center>
+        <Text
+          color='white'
+          fontSize='xs'
+          margin='40px'
+        >
+          PontoGo - Todos direitos reservados
+        </Text>
+      </Center>
     </>
   );
 }

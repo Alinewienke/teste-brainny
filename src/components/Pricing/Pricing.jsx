@@ -9,6 +9,7 @@ function Pricing() {
           as='h3'
           size='lg'
           color='white'
+          margin='20px'
         >
           Encontre o plano perfeito
         </Heading>
