@@ -1,56 +1,58 @@
-import { Button } from '@chakra-ui/react';
-import { Image } from '@chakra-ui/react';
+import { Button, Flex, Box, Center, Image, Text, Heading } from '@chakra-ui/react';
 
 import closePrincipal from '../../assets/close-principal.png';
-
-import { Text } from '@chakra-ui/react';
-import { Heading } from '@chakra-ui/react';
-
-import { Flex, Spacer, Box, Center } from '@chakra-ui/react';
 
 function MainContent() {
   return (
     <>
       <Center>
         <Flex
-          minWidth='max-content'
+          width='100%'
           alignItems='center'
-          gap='2'
         >
-          <Box maxWidth='430'>
+          <Box minWidth='520'>
             <Text
               color='white'
-              fontSize='3xl'
-              mb='4'
+              fontSize='24px'
+              mb='3'
+              fontWeight='300'
             >
-              Esquece o ponto manual
+              {'Esquece o ponto manual'.toUpperCase()}
             </Text>
             <Heading
               as='h3'
-              size='lg'
+              fontSize='40px'
               color='white'
-              mb='4'
+              mb='3'
+              fontWeight='800'
+              lineHeight='60px'
             >
               Chegou a nova realidade para Controle de Pontos
             </Heading>
             <Text
               color='white'
-              fontSize='md'
-              mb='4'
+              fontSize='18px'
+              fontWeight='500'
+              mb='7'
+              lineHeight='27px'
             >
-              Com o PontoGo seus colaboradores poderão bater seus pontos de forma fácil e rápida, possuindo também uma
-              Dashboard intuitiva.
+              Com o PontoGo seus colaboradores poderão bater <br />
+              seus pontos de forma fácil e rápida, possuindo <br />
+              também uma Dashboard intuitiva.
             </Text>
             <Button
               bg='secondary'
               color='white'
               mr='4'
+              fontWeight='400'
             >
               Assinar agora
             </Button>
             <Button
               variant='outline'
               color='white'
+              px='8'
+              fontWeight='400'
             >
               Ver planos
             </Button>

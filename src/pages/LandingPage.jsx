@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 
 import NavBar from '../components/NavBar/NavBar';
 import MainContent from '../components/MainContent/MainContent';
@@ -18,7 +18,12 @@ function LandingPage() {
         <MainContent />
         <CompanyLogos />
         <Pricing />
+        <Divider
+          mt='20'
+          mb='4'
+        />
         <Contact />
+        <Divider mt='4' />
         <Footer />
       </Box>
     </>

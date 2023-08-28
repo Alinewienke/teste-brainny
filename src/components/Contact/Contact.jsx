@@ -1,8 +1,6 @@
-import { Center, Flex, Image, Box, Spacer } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
+import { Center, Flex, Image, Box, Spacer, Text } from '@chakra-ui/react';
 
 import logoPontoGo from '../../assets/logo-pontogo.png';
-
 import logoInstagram from '../../assets/logo-instagram.png';
 import logoFacebook from '../../assets/logo-facebook.png';
 import logoLinkedin from '../../assets/logo-linkedin.png';
@@ -12,7 +10,6 @@ function Contact() {
     <>
       <Center>
         <Flex
-          mt='10'
           alignItems='center'
           w='450px'
         >

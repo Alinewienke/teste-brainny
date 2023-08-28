@@ -8,7 +8,10 @@ import logoGostudy from '../../assets/logo-gostudy.png';
 function CompanyLogos() {
   return (
     <>
-      <Flex px='20'>
+      <Flex
+        px='38'
+        my='50'
+      >
         <Image
           src={logoBrainny}
           alt='logo brainny'
