@@ -1,3 +1,5 @@
+import { Box } from '@chakra-ui/react';
+
 import NavBar from '../components/NavBar/NavBar';
 import MainContent from '../components/MainContent/MainContent';
 import CompanyLogos from '../components/CompanyLogos/CompanyLogos';
@@ -8,12 +10,17 @@ import Pricing from '../components/Pricing/Pricing';
 function LandingPage() {
   return (
     <>
-      <NavBar />
-      <MainContent />
-      <CompanyLogos />
-      <Pricing />
-      <Contact />
-      <Footer />
+      <Box
+        py='10'
+        px='40'
+      >
+        <NavBar />
+        <MainContent />
+        <CompanyLogos />
+        <Pricing />
+        <Contact />
+        <Footer />
+      </Box>
     </>
   );
 }

@@ -1,28 +1,47 @@
-import { Button } from '@chakra-ui/react';
+import { Button, ButtonGroup } from '@chakra-ui/react';
 import { Image } from '@chakra-ui/react';
+import { Flex, Spacer, Box } from '@chakra-ui/react';
 
 import logo from '../../assets/logo-white.png';
 
 function NavBar() {
   return (
     <>
-      <Image
-        src={logo}
-        alt='logo'
-      />
-      <Button
-        colorScheme='teal'
-        variant='link'
+      <Flex
+        color='white'
+        alignItems='center'
       >
-        Button
-      </Button>
-      <Button
-        colorScheme='teal'
-        variant='link'
-      >
-        Button
-      </Button>
-      <Button colorScheme='blue'>Button</Button>
+        <Box p='2'>
+          <Image
+            w='164px'
+            src={logo}
+            alt='logo'
+          />
+        </Box>
+        <Spacer />
+        <ButtonGroup gap='10'>
+          <Button
+            colorScheme='teal'
+            variant='link'
+            color='white'
+          >
+            Início
+          </Button>
+          <Button
+            colorScheme='teal'
+            variant='link'
+            color='white'
+          >
+            Planos
+          </Button>
+          <Button
+            color='principal'
+            bg='white'
+          >
+            Fazer login
+          </Button>
+        </ButtonGroup>
+      </Flex>
     </>
   );
 }
