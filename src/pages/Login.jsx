@@ -1,12 +1,20 @@
-import { Box, Flex } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Input,
+  Spacer,
+  Text,
+  InputGroup,
+  InputRightElement,
+  Button
+} from '@chakra-ui/react';
 import { useState } from 'react';
-import login from '../assets/login.png';
-import { Heading } from '@chakra-ui/react';
-import logo from '../assets/logo-purple.png';
-import { Image } from '@chakra-ui/react';
-import { Input, Spacer } from '@chakra-ui/react';
-import { Text, InputGroup, InputRightElement, Button } from '@chakra-ui/react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+
+import login from '../assets/login.png';
+import logo from '../assets/logo-purple.png';
 
 function Login() {
   const [show, setShow] = useState(false);
@@ -15,8 +23,8 @@ function Login() {
   return (
     <>
       <Box
-        width='100vw'
-        height='100vh'
+        width='100%'
+        height='100%'
         bg='white'
       >
         <Flex
@@ -66,17 +74,18 @@ function Login() {
             >
               Faça login
             </Heading>
-            <Text fontSize='2xl'>Email</Text>
+            <Text fontSize='20'>Email</Text>
             <Input
-              placeholder='Basic usage'
-              mb='8'
+              placeholder='exemplo@email.com'
+              mb='4'
             />
-            <Text fontSize='2xl'>Senha</Text>
+            <Text fontSize='20'>Senha</Text>
             <InputGroup size='md'>
               <Input
                 pr='4.5rem'
                 type={show ? 'text' : 'password'}
-                placeholder='Enter password'
+                placeholder='*************'
+                mb='2'
               />
               <InputRightElement width='4.5rem'>
                 <Button
@@ -90,10 +99,9 @@ function Login() {
               </InputRightElement>
             </InputGroup>
             <Button
-              colorScheme='teal'
               variant='link'
               color='principal'
-              fontSize='12'
+              fontSize='15'
               mb='8'
               textDecoration='underline'
             >
@@ -103,7 +111,9 @@ function Login() {
             <Spacer></Spacer>
             <Button
               px='40'
-              colorScheme='blue'
+              bg='principal'
+              color='white'
+              fontWeight='400'
             >
               Entrar
             </Button>

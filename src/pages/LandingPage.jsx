@@ -11,20 +11,26 @@ function LandingPage() {
   return (
     <>
       <Box
-        py='10'
-        px='40'
+        width='100%'
+        height='100%'
+        bg='principal'
       >
-        <NavBar />
-        <MainContent />
-        <CompanyLogos />
-        <Pricing />
-        <Divider
-          mt='20'
-          mb='4'
-        />
-        <Contact />
-        <Divider mt='4' />
-        <Footer />
+        <Box
+          py='10'
+          px='40'
+        >
+          <NavBar />
+          <MainContent />
+          <CompanyLogos />
+          <Pricing />
+          <Divider
+            mt='20'
+            mb='4'
+          />
+          <Contact />
+          <Divider mt='4' />
+          <Footer />
+        </Box>
       </Box>
     </>
   );
