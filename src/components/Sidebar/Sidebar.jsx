@@ -2,10 +2,13 @@ import { Box, Button, Image, Divider } from '@chakra-ui/react';
 
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { AiOutlineLogout } from 'react-icons/ai';
+import { PiNotepad } from 'react-icons/pi';
+
+import PropTypes from 'prop-types';
 
 import logo from '../../assets/logo-purple.png';
 
-function Sidebar() {
+function Sidebar({ pageName }) {
   return (
     <>
       <Box
@@ -23,14 +26,14 @@ function Sidebar() {
         />
         {/* <Divider orientation='vertical' /> */}
         <Button
-          leftIcon={<LuLayoutDashboard />}
+          leftIcon={pageName === 'Dashboard' ? <LuLayoutDashboard /> : <PiNotepad />}
           color='principal'
           variant='link'
           fontSize='14px'
           fontWeight='400'
           mt='10'
         >
-          Dashboard
+          {pageName === 'Dashboard' ? 'Dashboard' : 'Meus registros'}
         </Button>
         <Button
           leftIcon={<AiOutlineLogout />}
@@ -48,5 +51,9 @@ function Sidebar() {
     </>
   );
 }
+
+Sidebar.propTypes = {
+  pageName: PropTypes.string
+};
 
 export default Sidebar;
