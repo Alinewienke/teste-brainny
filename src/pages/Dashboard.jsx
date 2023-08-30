@@ -13,7 +13,7 @@ function Dashboard() {
         bg='#F2F2F2'
       >
         <Flex>
-          <Sidebar />
+          <Sidebar pageName='Dashboard' />
           <Box
             width='100%'
             p='6'
