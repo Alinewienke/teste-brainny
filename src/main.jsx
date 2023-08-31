@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import './main.css';
 
 import Dashboard from './pages/Dashboard';
@@ -49,10 +49,21 @@ const theme = extendTheme({
   }
 });
 
+const client = new ApolloClient({
+  uri: 'http://test.frontend.api.brainny.cc/graphql',
+  cache: new InMemoryCache(),
+  headers: {
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNTE1NTk2LCJleHAiOjE2OTYxMDc1OTZ9.SVn7UpoeLmhMy9ttVMiRHeArkYbfye1p1vVumXL5fIg'
+  }
+});
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ChakraProvider>
+    <ApolloProvider client={client}>
+      <ChakraProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </ApolloProvider>
   </React.StrictMode>
 );
