@@ -16,9 +16,26 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import login from '../assets/login.png';
 import logo from '../assets/logo-purple.png';
 
+import { gql, useLazyQuery } from '@apollo/client';
+
 function Login() {
   const [show, setShow] = useState(false);
+  const [identifier, setIdentifier] = useState('');
+  const [password, setPassword] = useState('');
   const handleClick = () => setShow(!show);
+
+  const LOG_IN_QUERY = gql`
+    query LogIn($identifier: String!, $password: String!) {
+      login(input: { identifier: $identifier, password: $password }) {
+        jwt
+        user {
+          id
+        }
+      }
+    }
+  `;
+
+  const [loginQuery, { loading, error, data }] = useLazyQuery(LOG_IN_QUERY);
 
   return (
     <>
@@ -78,6 +95,8 @@ function Login() {
             <Input
               placeholder='exemplo@email.com'
               mb='4'
+              value={identifier}
+              onChange={event => setIdentifier(event.target.value)}
             />
             <Text fontSize='20'>Senha</Text>
             <InputGroup size='md'>
@@ -86,6 +105,8 @@ function Login() {
                 type={show ? 'text' : 'password'}
                 placeholder='*************'
                 mb='2'
+                value={password}
+                onChange={event => setPassword(event.target.value)}
               />
               <InputRightElement width='4.5rem'>
                 <Button
@@ -93,7 +114,7 @@ function Login() {
                   variant='link'
                   h='1.75rem'
                   size='sm'
-                  onClick={handleClick}
+                  onClick={() => handleClick()}
                   color='principal'
                 />
               </InputRightElement>
@@ -114,6 +135,7 @@ function Login() {
               bg='principal'
               color='white'
               fontWeight='400'
+              onClick={() => loginQuery({ variables: { identifier, password } })}
             >
               Entrar
             </Button>
