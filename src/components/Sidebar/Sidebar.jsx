@@ -1,14 +1,17 @@
-import { Box, Button, Image, Divider } from '@chakra-ui/react';
+import { Box, Button, Image } from '@chakra-ui/react';
 
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { PiNotepad } from 'react-icons/pi';
+import { useNavigate } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
 import logo from '../../assets/logo-purple.png';
 
 function Sidebar({ pageName }) {
+  const navigate = useNavigate();
+
   return (
     <>
       <Box
@@ -44,6 +47,7 @@ function Sidebar({ pageName }) {
           position='absolute'
           bottom='8'
           left='6'
+          onClick={() => navigate('/login')}
         >
           Sair
         </Button>
