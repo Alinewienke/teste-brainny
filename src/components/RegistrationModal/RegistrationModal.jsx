@@ -1,13 +1,27 @@
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react';
-import { Button, useDisclosure, Flex } from '@chakra-ui/react';
-import { Heading } from '@chakra-ui/react';
-import { Image } from '@chakra-ui/react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  useDisclosure,
+  Flex,
+  Heading,
+  Image,
+  Text
+} from '@chakra-ui/react';
+
+import { gql, useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
+
 import clock from '../../assets/clock.png';
-import { Text } from '@chakra-ui/react';
 
 function RegistrationModal() {
+  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const userId = localStorage.getItem('userId');
   const date = new Date();
 
   let day = date.getDate();
@@ -16,6 +30,37 @@ function RegistrationModal() {
 
   let currentDate = `${day}/${month}/${year}`;
   let currentHour = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  const REGISTER_TIME_MUTATION = gql`
+    mutation createRegisteredTimeMutation($timeRegistered: DateTime!, $user: ID) {
+      createRegisteredTime(input: { data: { timeRegistered: $timeRegistered, user: $user } }) {
+        registeredTime {
+          id
+          created_at
+          updated_at
+          user {
+            id
+            name
+          }
+        }
+      }
+    }
+  `;
+
+  const [createRegisteredTime] = useMutation(REGISTER_TIME_MUTATION, {
+    variables: {
+      timeRegistered: date,
+      user: userId
+    },
+    onCompleted: () => {
+      navigate('/meus-registros');
+    }
+  });
+
+  const handleTimeRegister = () => {
+    createRegisteredTime();
+    onClose();
+  };
 
   return (
     <>
@@ -74,7 +119,7 @@ function RegistrationModal() {
 
               <Button
                 w='200px'
-                onClick={onClose}
+                onClick={handleTimeRegister}
                 color='white'
                 bg='principal'
                 fontWeight='400'

@@ -1,11 +1,35 @@
 import { Box, Flex } from '@chakra-ui/react';
 
+import { gql, useQuery } from '@apollo/client';
+
 import Sidebar from '../components/Sidebar/Sidebar';
 import WorkerCard from '../components/WorkerCard/WorkerCard';
 import WorkerHeader from '../components/WorkerHeader/WorkerHeader';
 import RegistrationModal from '../components/RegistrationModal/RegistrationModal';
 
 function MyRegistries() {
+  const userId = localStorage.getItem('userId');
+
+  const REGISTERED_TIMES_QUERY = gql`
+    query RegisteredTimesQuery($id: String!) {
+      registeredTimes(sort: "created_at:desc", where: { user: { id: $id } }) {
+        id
+        created_at
+        timeRegistered
+        user {
+          id
+          name
+        }
+      }
+    }
+  `;
+
+  const { loading, data } = useQuery(REGISTERED_TIMES_QUERY, {
+    variables: {
+      id: userId
+    }
+  });
+
   return (
     <>
       <Box
@@ -22,12 +46,17 @@ function MyRegistries() {
           >
             <RegistrationModal />
             <WorkerHeader />
-            <WorkerCard
-              workerName='João Silva'
-              workerNumber='001'
-              date='12/10/19'
-              hour='18:30h'
-            />
+            {!loading &&
+              data &&
+              data.registeredTimes &&
+              data.registeredTimes.map(e => (
+                <WorkerCard
+                  key={e.id}
+                  workerName={e.user ? e.user.name : 'Nome não informado'}
+                  workerNumber={e.user ? e.user.id : ''}
+                  date={e.timeRegistered}
+                />
+              ))}
           </Box>
         </Flex>
       </Box>

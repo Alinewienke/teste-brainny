@@ -9,7 +9,7 @@ import WorkerHeader from '../components/WorkerHeader/WorkerHeader';
 function Dashboard() {
   const REGISTERED_TIMES_QUERY = gql`
     query RegisteredTimesQuery {
-      registeredTimes {
+      registeredTimes(sort: "created_at:desc") {
         id
         created_at
         timeRegistered

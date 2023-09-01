@@ -10,7 +10,7 @@ import {
   InputRightElement,
   Button
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { gql, useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
@@ -33,10 +33,9 @@ function Login() {
         jwt
         user {
           id
+          username
           role {
-            id
             name
-            type
           }
         }
       }
@@ -50,6 +49,7 @@ function Login() {
     },
     onCompleted: ({ login }) => {
       localStorage.setItem(AUTH_TOKEN, login.jwt);
+      localStorage.setItem('userId', login.user.id);
       if (login.user.role.name === 'admin') {
         navigate('/dashboard');
       } else {
@@ -57,6 +57,11 @@ function Login() {
       }
     }
   });
+
+  useEffect(() => {
+    localStorage.setItem(AUTH_TOKEN, '');
+    localStorage.setItem('userId', '');
+  }, []);
 
   return (
     <>
