@@ -35,6 +35,7 @@ function WorkerCard({ workerName, workerNumber, date }) {
               <Text
                 fontWeight='700'
                 fontSize='22px'
+                w='300px'
               >
                 {workerName}
               </Text>

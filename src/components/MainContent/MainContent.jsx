@@ -10,7 +10,10 @@ function MainContent() {
           width='100%'
           alignItems='center'
         >
-          <Box minWidth='520'>
+          <Box
+            zIndex='5'
+            minWidth='520'
+          >
             <Text
               color='white'
               fontSize='24px'
@@ -45,6 +48,7 @@ function MainContent() {
               color='white'
               mr='4'
               fontWeight='400'
+              zIndex='5'
             >
               Assinar agora
             </Button>
@@ -53,6 +57,7 @@ function MainContent() {
               color='white'
               px='8'
               fontWeight='400'
+              zIndex='5'
             >
               Ver planos
             </Button>
@@ -60,6 +65,7 @@ function MainContent() {
           <Image
             src={closePrincipal}
             alt='close-principal'
+            zIndex='5'
           />
         </Flex>
       </Center>

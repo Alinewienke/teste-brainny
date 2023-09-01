@@ -20,6 +20,8 @@ function Sidebar({ pageName }) {
         bg='white'
         px='6'
         py='8'
+        position='sticky'
+        top='0'
       >
         <Image
           src={logo}
