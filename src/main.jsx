@@ -10,6 +10,8 @@ import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import MyRegistries from './pages/MyRegistries';
 
+import { AUTH_TOKEN } from './constants';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -49,12 +51,13 @@ const theme = extendTheme({
   }
 });
 
+const token = localStorage.getItem(AUTH_TOKEN);
+
 const client = new ApolloClient({
   uri: 'http://test.frontend.api.brainny.cc/graphql',
   cache: new InMemoryCache(),
   headers: {
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNTE1NTk2LCJleHAiOjE2OTYxMDc1OTZ9.SVn7UpoeLmhMy9ttVMiRHeArkYbfye1p1vVumXL5fIg'
+    Authorization: token ? `Bearer ${token}` : ''
   }
 });
 

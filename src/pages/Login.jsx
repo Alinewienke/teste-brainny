@@ -12,30 +12,51 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { gql, useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
 
-import login from '../assets/login.png';
+import loginImage from '../assets/login.png';
 import logo from '../assets/logo-purple.png';
 
-import { gql, useLazyQuery } from '@apollo/client';
+import { AUTH_TOKEN } from './../constants.js';
 
 function Login() {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const handleClick = () => setShow(!show);
 
-  const LOG_IN_QUERY = gql`
-    query LogIn($identifier: String!, $password: String!) {
+  const LOGIN_MUTATION = gql`
+    mutation LoginMutation($identifier: String!, $password: String!) {
       login(input: { identifier: $identifier, password: $password }) {
         jwt
         user {
           id
+          role {
+            id
+            name
+            type
+          }
         }
       }
     }
   `;
 
-  const [loginQuery, { loading, error, data }] = useLazyQuery(LOG_IN_QUERY);
+  const [login] = useMutation(LOGIN_MUTATION, {
+    variables: {
+      identifier: identifier,
+      password: password
+    },
+    onCompleted: ({ login }) => {
+      localStorage.setItem(AUTH_TOKEN, login.jwt);
+      if (login.user.role.name === 'admin') {
+        navigate('/dashboard');
+      } else {
+        navigate('/meus-registros');
+      }
+    }
+  });
 
   return (
     <>
@@ -52,7 +73,7 @@ function Login() {
         >
           <Box>
             <Image
-              src={login}
+              src={loginImage}
               alt='login'
               w='400px'
             />
@@ -135,7 +156,7 @@ function Login() {
               bg='principal'
               color='white'
               fontWeight='400'
-              onClick={() => loginQuery({ variables: { identifier, password } })}
+              onClick={login}
             >
               Entrar
             </Button>
