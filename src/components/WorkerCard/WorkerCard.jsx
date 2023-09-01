@@ -1,7 +1,21 @@
 import { Card, Text, Box, Grid, GridItem } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
-function WorkerCard({ workerName, workerNumber, date, hour }) {
+function WorkerCard({ workerName, workerNumber, date }) {
+  const ajustDate = date => {
+    const newDate = new Date(date);
+    let day = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  };
+
+  const ajustHour = date => {
+    const newDate = new Date(date);
+    return newDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
   return (
     <>
       <Card
@@ -10,6 +24,7 @@ function WorkerCard({ workerName, workerNumber, date, hour }) {
         direction={{ base: 'row' }}
         align='center'
         p='4'
+        mb='4'
       >
         <Grid
           templateColumns='repeat(10, 1fr)'
@@ -31,7 +46,7 @@ function WorkerCard({ workerName, workerNumber, date, hour }) {
               fontSize='22px'
               color='#20292E'
             >
-              {date}
+              {ajustDate(date)}
             </Text>
           </GridItem>
           <GridItem colSpan={1}>
@@ -39,7 +54,7 @@ function WorkerCard({ workerName, workerNumber, date, hour }) {
               fontSize='22px'
               color='#20292E'
             >
-              {hour}
+              {ajustHour(date)}
             </Text>
           </GridItem>
         </Grid>
@@ -50,9 +65,8 @@ function WorkerCard({ workerName, workerNumber, date, hour }) {
 
 WorkerCard.propTypes = {
   workerName: PropTypes.string,
-  workerNumber: PropTypes.number,
-  date: PropTypes.string,
-  hour: PropTypes.number
+  workerNumber: PropTypes.string,
+  date: PropTypes.string
 };
 
 export default WorkerCard;
