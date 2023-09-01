@@ -24,7 +24,7 @@ function LandingPage() {
       <Box
         width='100%'
         height='100%'
-        bg='principal'
+        bg='#210a61'
       >
         <Image
           src={elipse2}

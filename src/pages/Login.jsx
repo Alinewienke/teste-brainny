@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 import loginImage from '../assets/login.png';
 import logo from '../assets/logo-purple.png';
+import elipse2 from '../assets/login-elements/elipse2.png';
 
 import { AUTH_TOKEN } from './../constants.js';
 
@@ -78,9 +79,18 @@ function Login() {
         >
           <Box>
             <Image
+              src={elipse2}
+              alt='elipse'
+              position='absolute'
+              top='0'
+              left='0'
+              opacity='0.5'
+            />
+            <Image
               src={loginImage}
               alt='login'
               w='400px'
+              zIndex='5'
             />
 
             <Heading
@@ -90,6 +100,7 @@ function Login() {
               fontSize='40'
               textAlign='center'
               mb='4'
+              zIndex='5'
             >
               Bem vindo ao PontoGo
             </Heading>
@@ -98,6 +109,7 @@ function Login() {
               fontSize='25'
               fontWeight='400'
               textAlign='center'
+              zIndex='5'
             >
               Aqui você fará toda gestão do <br /> seu sistema de pontos.
             </Text>

@@ -9,7 +9,10 @@ function WorkerHeader() {
         px='4'
         mb='4'
       >
-        <GridItem colSpan={2}>
+        <GridItem
+          w='330px'
+          colSpan={2}
+        >
           <Text
             fontWeight='600'
             fontSize='22px'
@@ -17,7 +20,10 @@ function WorkerHeader() {
             Colaborador
           </Text>
         </GridItem>
-        <GridItem colSpan={2}>
+        <GridItem
+          w='330px'
+          colSpan={2}
+        >
           <Text
             fontWeight='600'
             fontSize='22px'

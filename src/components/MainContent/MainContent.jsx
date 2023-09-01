@@ -30,7 +30,16 @@ function MainContent() {
               fontWeight='800'
               lineHeight='60px'
             >
-              Chegou a nova realidade para Controle de Pontos
+              Chegou a nova realidade para{' '}
+              <Heading
+                as='span'
+                color='secondary'
+                fontSize='40px'
+                fontWeight='800'
+                lineHeight='60px'
+              >
+                Controle de Pontos
+              </Heading>
             </Heading>
             <Text
               color='white'

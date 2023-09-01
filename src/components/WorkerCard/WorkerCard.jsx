@@ -1,5 +1,8 @@
-import { Card, Text, Box, Grid, GridItem } from '@chakra-ui/react';
+import { Card, Text, Box, Grid, GridItem, Image } from '@chakra-ui/react';
+
 import PropTypes from 'prop-types';
+
+import bar from '../../assets/bar.png';
 
 function WorkerCard({ workerName, workerNumber, date }) {
   const ajustDate = date => {
@@ -31,7 +34,13 @@ function WorkerCard({ workerName, workerNumber, date }) {
           gap={4}
         >
           <GridItem colSpan={4}>
-            <Box>
+            <Image
+              src={bar}
+              alt='login'
+              position='absolute'
+              bottom='15px'
+            />
+            <Box ml='8'>
               <Text
                 fontWeight='700'
                 fontSize='22px'

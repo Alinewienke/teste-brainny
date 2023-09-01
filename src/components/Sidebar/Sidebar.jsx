@@ -1,4 +1,4 @@
-import { Box, Button, Image } from '@chakra-ui/react';
+import { Box, Button, Image, Divider } from '@chakra-ui/react';
 
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { AiOutlineLogout } from 'react-icons/ai';
@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import logo from '../../assets/logo-purple.png';
+import rectangle from '../../assets/rectangle.png';
 
 function Sidebar({ pageName }) {
   const navigate = useNavigate();
@@ -29,7 +30,16 @@ function Sidebar({ pageName }) {
           mb='6'
           w='134px'
         />
-        {/* <Divider orientation='vertical' /> */}
+        <Divider
+          position='absolute'
+          left='0'
+        />
+        <Image
+          src={rectangle}
+          alt='rectangle'
+          position='absolute'
+          left='0'
+        />
         <Button
           leftIcon={pageName === 'Dashboard' ? <LuLayoutDashboard /> : <PiNotepad />}
           color='principal'
@@ -40,6 +50,11 @@ function Sidebar({ pageName }) {
         >
           {pageName === 'Dashboard' ? 'Dashboard' : 'Meus registros'}
         </Button>
+        <Divider
+          position='absolute'
+          left='0'
+          top='182px'
+        />
         <Button
           leftIcon={<AiOutlineLogout />}
           color='black'
